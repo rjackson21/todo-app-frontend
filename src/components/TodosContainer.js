@@ -13,7 +13,7 @@ class TodosContainer extends Component {
   }
 
   getTodos() {
-    axios.get('/api/v1/todos')
+    axios.get('https://stark-sea-73979.herokuapp.com/api/v1/todos')
     .then(response => {
       if (response.data && response.data.length > 0) { 
         this.setState({todos: response.data})
