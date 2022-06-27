@@ -29,7 +29,7 @@ class TodosContainer extends Component {
   }
 
   updateTodo = (e, id) => {
-    axios.put(`/api/v1/todos/${id}`, {todo: {done: e.target.checked}})
+    axios.put(`https://stark-sea-73979.herokuapp.com/api/v1/todos/${id}`, {todo: {done: e.target.checked}})
     .then(response => {
       const todoIndex = this.state.todos.findIndex(x => x.id === response.data.id)
       const todos = update(this.state.todos, {
@@ -43,7 +43,7 @@ class TodosContainer extends Component {
   }
 
   deleteTodo = (id) => {
-    axios.delete(`/api/v1/todos/${id}`)
+    axios.delete(`https://stark-sea-73979.herokuapp.com/api/v1/todos/${id}`)
     .then(response => {
       const todoIndex = this.state.todos.findIndex(x => x.id === id)
       const todos = update(this.state.todos, {
@@ -58,7 +58,7 @@ class TodosContainer extends Component {
 
   createTodo = (e) => {
     if (e.key === 'Enter') {
-      axios.post('/api/v1/todos', {todo: {title: e.target.value}})
+      axios.post('https://stark-sea-73979.herokuapp.com/api/v1/todos', {todo: {title: e.target.value}})
       .then(response => {
         const todos = update(this.state.todos, {
           $splice: [[0, 0, response.data]]
