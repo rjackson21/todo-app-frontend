@@ -15,7 +15,11 @@ class TodosContainer extends Component {
   getTodos() {
     axios.get('/api/v1/todos')
     .then(response => {
-      this.setState({todos: response.data})
+      if (response.data && response.data.length > 0) { 
+        this.setState({todos: response.data})
+      } else {
+        this.setState({todos: []})
+      }
     })
     .catch(error => console.log(error))
   }
