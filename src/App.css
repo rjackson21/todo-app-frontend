@@ -1,3 +1,4 @@
+
 ul.taskList {
 	padding: 0 25px;
 }
@@ -89,6 +90,7 @@ input[placeholder] {
 	right: 0;
 	left: 0;
 	overflow: auto;
+	
 }
 
 .deleteTaskBtn {
