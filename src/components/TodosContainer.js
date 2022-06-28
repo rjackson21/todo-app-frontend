@@ -57,7 +57,7 @@ class TodosContainer extends Component {
   }
 
   createTodo = (e) => {
-    if (e.key === 'Enter' && e.target.value.length > 0) {
+    if (e.key === 'Enter' && e.target.value.length > 1) {
       axios.post('https://stark-sea-73979.herokuapp.com/api/v1/todos', {todo: {title: e.target.value}})
       .then(response => {
         const todos = update(this.state.todos, {
