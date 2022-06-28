@@ -87,10 +87,10 @@ input[placeholder] {
 	position: absolute;
 	bottom: 50px;
 	top: 160px;
+	height: 442px;
 	right: 0;
 	left: 0;
 	overflow: auto;
-	
 }
 
 .deleteTaskBtn {
