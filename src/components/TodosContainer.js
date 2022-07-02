@@ -13,7 +13,7 @@ class TodosContainer extends Component {
   }
 
   getTodos() {
-    axios.get('https://stark-sea-73979.herokuapp.com/api/v1/todos')
+    axios.get('http://localhost:3000/api/v1/todos')
     .then(response => {
       if (response.data && response.data.length > 0) { 
         this.setState({todos: response.data})
@@ -29,7 +29,7 @@ class TodosContainer extends Component {
   }
 
   updateTodo = (e, id) => {
-    axios.put(`https://stark-sea-73979.herokuapp.com/api/v1/todos/${id}`, {todo: {done: e.target.checked}})
+    axios.put(`http://localhost:3000/api/v1/todos/${id}`, {todo: {done: e.target.checked}})
     .then(response => {
       const todoIndex = this.state.todos.findIndex(x => x.id === response.data.id)
       const todos = update(this.state.todos, {
@@ -44,7 +44,7 @@ class TodosContainer extends Component {
   }
 
   deleteTodo = (id) => {
-    axios.delete(`https://stark-sea-73979.herokuapp.com/api/v1/todos/${id}`)
+    axios.delete(`http://localhost:3000/api/v1/todos/${id}`)
     .then(response => {
       const todoIndex = this.state.todos.findIndex(x => x.id === id)
       const todos = update(this.state.todos, {
@@ -59,7 +59,7 @@ class TodosContainer extends Component {
 
   createTodo = (e) => {
     if (e.key === 'Enter' && e.target.value.length > 1) {
-      axios.post('https://stark-sea-73979.herokuapp.com/api/v1/todos', {todo: {title: e.target.value}})
+      axios.post('http://localhost:3000/api/v1/todos', {todo: {title: e.target.value}})
       .then(response => {
         const todos = update(this.state.todos, {
           $splice: [[0, 0, response.data]]
